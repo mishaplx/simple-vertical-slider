@@ -52,9 +52,6 @@
 // }
 // //////////////
 
-
-
-
 const downBtn = document.querySelector(".down-button");
 const upBtn = document.querySelector(".up-button");
 const sidebar = document.querySelector(".sidebar");
@@ -63,7 +60,7 @@ const slideCount = mainSlider.querySelectorAll("div").length;
 const container = document.querySelector(".container");
 
 let activeSlideIndex = 0;
-sidebar.style.top = `-${(slideCount - 1) * 100}vh`
+sidebar.style.top = `-${(slideCount - 1) * 100}vh`;
 function changeSlide(direction) {
   if (direction === "up") {
     activeSlideIndex++;
@@ -76,7 +73,7 @@ function changeSlide(direction) {
       activeSlideIndex = slideCount - 1;
     }
   }
-  const height = container.clientHeight
+  const height = container.clientHeight;
   mainSlider.style.transform = `translateY(-${activeSlideIndex * height}px)`;
   sidebar.style.transform = `translateY(${activeSlideIndex * height}px)`;
 }
@@ -88,9 +85,9 @@ downBtn.addEventListener("click", () => {
   changeSlide("down");
 });
 document.addEventListener("keydown", (event) => {
-  if (event.code == "ArrowUp" || "PageUp") {
+  if (event.key === "ArrowUp") {
     changeSlide("up");
-  } else if (event.code == "ArrowDown" || "PageDown") {
+  } else if (event.key === "ArrowDown") {
     changeSlide("down");
   }
 });
@@ -103,3 +100,6 @@ document.body.addEventListener("mousewheel", (e) => {
     changeSlide("down");
   }
 });
+
+
+
